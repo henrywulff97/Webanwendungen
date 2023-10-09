@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <title>Recordz - Your Records</title>
 </head>
 <body>
@@ -40,7 +41,7 @@
 
     <!--CONTENT-->
     <div class="container">
-        <table class="table">
+        <table id="record-table" class="table">
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -94,6 +95,35 @@
                 </tr>
             </tbody>
         </table>
+
+        <form id="add-record-form">
+            <fieldset>
+                <legend>
+                    Add Record
+                </legend>
+                <div class="form-group">
+                    <label for="form-album-name" class="form-label mt-4">Album Name</label>
+                    <input type="text" class="form-control" id="form-album-name">
+                </div>
+                <div class="form-group">
+                    <label for="form-artist" class="form-label mt-4">Artist</label>
+                    <input type="text" class="form-control" id="form-artist">
+                </div>
+                <div class="form-group">
+                    <label for="form-version" class="form-label mt-4">Version</label>
+                    <input type="text" class="form-control" id="form-version">
+                </div>
+                <div class="form-group">
+                    <label for="form-release-date" class="form-label mt-4">Release Date</label>
+                    <input type="text" class="form-control" id="form-release-date">
+                </div>
+                <div class="form-group">
+                    <label for="form-record-label" class="form-label mt-4">Record Label</label>
+                    <input type="text" class="form-control" id="form-record-label">
+                </div>
+            </fieldset>
+            <button type="button" class="btn btn-primary btn-lg" id="submit-button">Submit</button>
+        </form>
     </div>
 
     <!--FOOTER-->
@@ -111,5 +141,6 @@
 
     <!--SCRIPTS-->
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/submitNewRecord.js"></script>
 </body>
 </html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Placeholder</title>
+
+    <style>
+        .carousel-inner.custom-height {
+            height: 300px;
+        }
+
+        .carousel-inner.custom-height img {
+            max-height: 100%;
+            width: auto;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<body>
+<!--HEADER-->
+<nav class="navbar navbar-expand-lg bg-dark mb-4" data-bs-theme="dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">Recordz</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02"
+                aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor02">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="yourRecords.html">Your Records
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="placeholder.html">Placeholder</a>
+                    <span class="visually-hidden">(current)</span>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Content Begin -->
+<div class="container">
+    <div id="funnyCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner custom-height">
+            <div class="carousel-item active">
+                <img src="res/images/lama.jpg" alt="Lama Placeholder">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Lama Placeholder</h5>
+                    <p>Weil ... warum nicht?</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="res/images/tostbrot.png" alt="Toast Placeholder">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Toast Placeholder</h5>
+                    <p>Toasts sind toll, auch als Platzhalter!</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#funnyCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Vorheriger</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#funnyCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Nächster</span>
+        </button>
+    </div>
+
+    <!-- Info Text -->
+    <div class="my-5">
+        <h1>Willkommen bei Placeholder!</h1>
+        <p>Die einzige Seite, die wirklich nur Platzhalter hat! Hier finden Sie eine Sammlung der merkwürdigsten Daten,
+            die jemals als Platzhalter verwendet wurden. Viel Spaß beim Durchstöbern!</p>
+    </div>
+
+    <!-- Tabelle mit merkwürdigen Daten -->
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Bild</th>
+                <th>Beschreibung</th>
+                <th>Datum hinzugefügt</th>
+                <th>Aktion</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><img src="res/images/lama.jpg" alt="Lama" width="50"></td>
+                <td>Lama Placeholder</td>
+                <td>01.01.2023</td>
+                <td>
+                    <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#detailsModal1">Details</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modal für Details -->
+    <div class="modal fade" id="detailsModal1" tabindex="-1" aria-labelledby="detailsModalLabel1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="detailsModalLabel1">Lama Placeholder Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Schließen"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="res/images/lama.jpg" alt="Lama" width="100%">
+                    <p>Lamas sind toll, besonders als Platzhalter!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Schließen</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Content End -->
+
+
+<!--FOOTER-->
+<div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <span class="col-md-4 mb-0 text-muted">© 2023 Recordz, Inc</span>
+
+        <ul class="nav col-md-4 justify-content-end">
+            <li class="nav-item"><a class="nav-link px-2 text-muted" href="https://twitter.com/">Twitter</a></li>
+            <li class="nav-item"><a class="nav-link px-2 text-muted" href="https://www.instagram.com/">Instagram</a>
+            </li>
+            <li class="nav-item"><a class="nav-link px-2 text-muted" href="https://facebook.com/">Facebook</a></li>
+        </ul>
+    </footer>
+</div>
+
+<!--SCRIPTS-->
+<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

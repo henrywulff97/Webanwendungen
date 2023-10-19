@@ -10,6 +10,8 @@ import {NavbarComponent} from "./core/components/navbar/navbar.component";
 import {PlaceholderComponent} from './features/placeholder/page/placeholder.component';
 import {FooterComponent} from './core/components/footer/footer.component';
 import {NgbCarousel} from "@ng-bootstrap/ng-bootstrap";
+import { HomeComponent } from './features/home/home.component';
+import { YourrecordsComponent } from './features/yourrecords/yourrecords.component';
 
 @NgModule({
   declarations: [
@@ -18,12 +20,17 @@ import {NgbCarousel} from "@ng-bootstrap/ng-bootstrap";
     NavbarComponent,
     PlaceholderComponent,
     FooterComponent,
+    FooterComponent,
+    HomeComponent,
+    YourrecordsComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
       {path: 'about', component: AboutComponent},
-      {path: 'placeholder', component: PlaceholderComponent}
+      {path: 'placeholder', component: PlaceholderComponent},
+      {path: 'your-records', component: YourrecordsComponent},
+      {path: '', component: HomeComponent}
     ]),
     NgOptimizedImage,
     NgbCarousel

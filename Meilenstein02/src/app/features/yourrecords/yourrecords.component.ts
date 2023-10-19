@@ -25,4 +25,8 @@ export class YourrecordsComponent {
     this.newRecord = {};
     localStorage.setItem("records", JSON.stringify(this.records));
   }
+
+  resetToDefault(){
+    localStorage.removeItem("records");
+  }
 }

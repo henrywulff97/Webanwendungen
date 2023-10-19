@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-yourrecords',
@@ -8,8 +9,9 @@ import {Component} from '@angular/core';
 export class YourrecordsComponent {
   records: any = [];
   newRecord: any = {};
+  jsonUrl: string = '/assets/defaultRecords.json';
 
-  constructor() {
+  constructor(private http: HttpClient) {
     if (localStorage.getItem("records")) {
       this.records = JSON.parse(localStorage.getItem("records") as string);
     }

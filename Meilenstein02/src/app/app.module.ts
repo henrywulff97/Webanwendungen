@@ -13,6 +13,7 @@ import {NgbCarousel, NgbSlide} from "@ng-bootstrap/ng-bootstrap";
 import { HomeComponent } from './features/home/home.component';
 import { YourrecordsComponent } from './features/yourrecords/yourrecords.component';
 import {FormsModule} from "@angular/forms";
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {FormsModule} from "@angular/forms";
     NgOptimizedImage,
     NgbCarousel,
     NgbSlide,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

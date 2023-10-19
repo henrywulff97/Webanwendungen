@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {ModalComponent} from "../../../core/components/modal/modal.component";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-placeholder',
@@ -7,4 +9,11 @@ import { Component } from '@angular/core';
 })
 export class PlaceholderComponent {
 
+  constructor(private modalService: NgbModal) {
+  }
+
+  openModal() {
+    const modalRef = this.modalService.open(ModalComponent);
+    modalRef.componentInstance.name = "firstModal";
+  }
 }

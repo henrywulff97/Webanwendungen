@@ -5,12 +5,11 @@ import {AppComponent} from './app.component';
 
 import {RouterModule} from '@angular/router';
 import {AboutComponent} from './features/about/page/about.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NgOptimizedImage} from "@angular/common";
 import {NavbarComponent} from "./core/components/navbar/navbar.component";
 import {PlaceholderComponent} from './features/placeholder/page/placeholder.component';
-import { ModalComponent } from './core/components/modal/modal.component';
-import { FooterComponent } from './core/components/footer/footer.component';
+import {FooterComponent} from './core/components/footer/footer.component';
+import {NgbCarousel} from "@ng-bootstrap/ng-bootstrap";
 import { HomeComponent } from './features/home/home.component';
 import { YourrecordsComponent } from './features/yourrecords/yourrecords.component';
 
@@ -20,7 +19,7 @@ import { YourrecordsComponent } from './features/yourrecords/yourrecords.compone
     AboutComponent,
     NavbarComponent,
     PlaceholderComponent,
-    ModalComponent,
+    FooterComponent,
     FooterComponent,
     HomeComponent,
     YourrecordsComponent
@@ -33,8 +32,8 @@ import { YourrecordsComponent } from './features/yourrecords/yourrecords.compone
       {path: 'your-records', component: YourrecordsComponent},
       {path: '', component: HomeComponent}
     ]),
-    NgbModule,
     NgOptimizedImage,
+    NgbCarousel
   ],
   providers: [],
   bootstrap: [AppComponent]

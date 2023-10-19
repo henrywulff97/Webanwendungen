@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-yourrecords',
@@ -22,13 +22,18 @@ export class YourrecordsComponent {
     localStorage.setItem("records", JSON.stringify(this.records));
   }
 
+  changed(){
+    localStorage.setItem("records", JSON.stringify(this.records));
+  }
+
   addRecord() {
     this.records.push(this.newRecord);
     this.newRecord = {};
     localStorage.setItem("records", JSON.stringify(this.records));
   }
 
-  resetToDefault(){
+  resetToDefault() {
     localStorage.removeItem("records");
+    this.http.get("/assets/defaultRecords.json").subscribe()
   }
 }

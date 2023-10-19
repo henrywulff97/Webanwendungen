@@ -14,11 +14,11 @@
     <tbody>
     <tr *ngFor="let record of records; index as i">
       <th scope="row">{{ i + 1 }}</th>
-      <td><input type="text" class="form-control" [(ngModel)]="record.albumName"></td>
-      <td><input type="text" class="form-control" [(ngModel)]="record.artist"></td>
-      <td><input type="text" class="form-control" [(ngModel)]="record.version"></td>
-      <td><input type="text" class="form-control" [(ngModel)]="record.releaseDate"></td>
-      <td><input type="text" class="form-control" [(ngModel)]="record.recordLabel"></td>
+      <td><input type="text" class="form-control" (ngModelChange)="changed()" [(ngModel)]="record.albumName"></td>
+      <td><input type="text" class="form-control" (ngModelChange)="changed()" [(ngModel)]="record.artist"></td>
+      <td><input type="text" class="form-control" (ngModelChange)="changed()" [(ngModel)]="record.version"></td>
+      <td><input type="text" class="form-control" (ngModelChange)="changed()" [(ngModel)]="record.releaseDate"></td>
+      <td><input type="text" class="form-control" (ngModelChange)="changed()" [(ngModel)]="record.recordLabel"></td>
       <td>
         <button class="btn btn-danger" (click)="deleteRecord(i)">Delete</button>
       </td>
@@ -60,7 +60,6 @@
       </div>
     </fieldset>
     <button type="submit" class="btn btn-primary btn-lg" [disabled]="!recordForm.valid">Submit</button>
-    <button class="btn btn-primary btn-lg" (click)="resetToDefault()">Reset Data</button>
   </form>
-
+  <button class="btn btn-primary btn-lg" (click)="resetToDefault()">Reset Data</button>
 </div>

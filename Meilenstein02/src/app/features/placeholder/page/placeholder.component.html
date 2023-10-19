@@ -44,31 +44,13 @@
         <td>Lama Placeholder</td>
         <td>01.01.2023</td>
         <td>
-          <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#detailsModal1">Details</button>
+          <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#detailsModal1" (click)="openModal()">
+            Details
+          </button>
         </td>
       </tr>
       </tbody>
     </table>
   </div>
   <!-- Tabelle End -->
-
-  <!-- Modal Begin -->
-  <div class="modal fade" id="detailsModal1" tabindex="-1" aria-labelledby="detailsModalLabel1" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="detailsModalLabel1">Lama Placeholder Details</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Schließen"></button>
-        </div>
-        <div class="modal-body">
-          <img src="assets/images/lama.jpg" alt="Lama" width="100%">
-          <p>Lamas sind toll, besonders als Platzhalter!</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Schließen</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Modal End -->
 </div>

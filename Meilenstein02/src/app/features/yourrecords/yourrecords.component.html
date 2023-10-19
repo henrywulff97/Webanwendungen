@@ -1,55 +1,65 @@
 <div class="container">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Album Name</th>
-                <th scope="col">Artist</th>
-                <th scope="col">Version</th>
-                <th scope="col">Release Date</th>
-                <th scope="col">Record Label</th>
-                <th scope="col"></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let record of records; index as i">
-                <th scope="row">{{ i + 1 }}</th>
-                <td><input type="text" class="form-control" [value]="record.albumName"></td>
-                <td><input type="text" class="form-control" [value]="record.artist"></td>
-                <td><input type="text" class="form-control" [value]="record.version"></td>
-                <td><input type="text" class="form-control" [value]="record.releaseDate"></td>
-                <td><input type="text" class="form-control" [value]="record.recordLabel"></td>
-                <td><button class="btn btn-danger">Delete</button></td>
-            </tr>
-        </tbody>
-    </table>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Album Name</th>
+      <th scope="col">Artist</th>
+      <th scope="col">Version</th>
+      <th scope="col">Release Date</th>
+      <th scope="col">Record Label</th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let record of records; index as i">
+      <th scope="row">{{ i + 1 }}</th>
+      <td><input type="text" class="form-control" [(ngModel)]="record.albumName"></td>
+      <td><input type="text" class="form-control" [(ngModel)]="record.artist"></td>
+      <td><input type="text" class="form-control" [(ngModel)]="record.version"></td>
+      <td><input type="text" class="form-control" [(ngModel)]="record.releaseDate"></td>
+      <td><input type="text" class="form-control" [(ngModel)]="record.recordLabel"></td>
+      <td>
+        <button class="btn btn-danger" (click)="deleteRecord(i)">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 
-    <form id="add-record-form">
-        <fieldset>
-            <legend>
-                Add Record
-            </legend>
-            <div class="form-group">
-                <label for="form-album-name" class="form-label mt-4">Album Name</label>
-                <input type="text" class="form-control" id="form-album-name">
-            </div>
-            <div class="form-group">
-                <label for="form-artist" class="form-label mt-4">Artist</label>
-                <input type="text" class="form-control" id="form-artist">
-            </div>
-            <div class="form-group">
-                <label for="form-version" class="form-label mt-4">Version</label>
-                <input type="text" class="form-control" id="form-version">
-            </div>
-            <div class="form-group">
-                <label for="form-release-date" class="form-label mt-4">Release Date</label>
-                <input type="text" class="form-control" id="form-release-date">
-            </div>
-            <div class="form-group">
-                <label for="form-record-label" class="form-label mt-4">Record Label</label>
-                <input type="text" class="form-control" id="form-record-label">
-            </div>
-        </fieldset>
-        <button type="button" class="btn btn-primary btn-lg" id="submit-button">Submit</button>
-    </form>
+  <form #recordForm="ngForm" (ngSubmit)="addRecord()">
+    <fieldset>
+      <legend>Add Record</legend>
+
+      <div class="form-group">
+        <label for="form-album-name" class="form-label mt-4">Album Name</label>
+        <input type="text" class="form-control" id="form-album-name" [(ngModel)]="newRecord.albumName" name="albumName"
+               required>
+      </div>
+
+      <div class="form-group">
+        <label for="form-artist" class="form-label mt-4">Artist</label>
+        <input type="text" class="form-control" id="form-artist" [(ngModel)]="newRecord.artist" name="artist" required>
+      </div>
+
+      <div class="form-group">
+        <label for="form-version" class="form-label mt-4">Version</label>
+        <input type="text" class="form-control" id="form-version" [(ngModel)]="newRecord.version" name="version"
+               required>
+      </div>
+
+      <div class="form-group">
+        <label for="form-release-date" class="form-label mt-4">Release Date</label>
+        <input type="date" class="form-control" id="form-release-date" [(ngModel)]="newRecord.releaseDate"
+               name="releaseDate" required>
+      </div>
+
+      <div class="form-group">
+        <label for="form-record-label" class="form-label mt-4">Record Label</label>
+        <input type="text" class="form-control" id="form-record-label" [(ngModel)]="newRecord.recordLabel"
+               name="recordLabel" required>
+      </div>
+    </fieldset>
+    <button type="submit" class="btn btn-primary btn-lg" [disabled]="!recordForm.valid">Submit</button>
+  </form>
+
 </div>

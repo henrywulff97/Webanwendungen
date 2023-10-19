@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-yourrecords',
@@ -6,41 +6,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./yourrecords.component.scss']
 })
 export class YourrecordsComponent {
-  records = [
-    {
-      albumName: "Peripheral Vision",
-      artist: "Turnover",
-      version: "First Print",
-      releaseDate: "19.07.1997",
-      recordLabel: "Fueled by Ramen"
-    },
-    {
-      albumName: "Why Would I Watch",
-      artist: "Hot Mulligan",
-      version: "First Print",
-      releaseDate: "19.07.1997",
-      recordLabel: "Fueled by Ramen"
-    },
-    {
-      albumName: "Vessel",
-      artist: "Twenty One Pilots",
-      version: "First Print",
-      releaseDate: "19.07.1997",
-      recordLabel: "Fueled by Ramen"
-    },
-    {
-      albumName: "Blue In The Dark",
-      artist: "Bearings",
-      version: "First Print",
-      releaseDate: "19.07.1997",
-      recordLabel: "Fueled by Ramen"
-    },
-    {
-      albumName: "Tickets To My Downfall",
-      artist: "Machine Gun Kelly",
-      version: "First Print",
-      releaseDate: "19.07.1997",
-      recordLabel: "Fueled by Ramen"
+  records: any = [];
+  newRecord: any = {};
+
+  constructor() {
+    if (localStorage.getItem("records")) {
+      this.records = JSON.parse(localStorage.getItem("records") as string);
     }
-  ]
+  }
+
+  deleteRecord(index: number) {
+    this.records.splice(index, 1);
+    localStorage.setItem("records", JSON.stringify(this.records));
+  }
+
+  addRecord() {
+    this.records.push(this.newRecord);
+    this.newRecord = {};
+    localStorage.setItem("records", JSON.stringify(this.records));
+  }
 }

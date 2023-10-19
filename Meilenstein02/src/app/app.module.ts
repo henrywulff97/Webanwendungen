@@ -10,6 +10,7 @@ import {NgOptimizedImage} from "@angular/common";
 import {NavbarComponent} from "./core/components/navbar/navbar.component";
 import {PlaceholderComponent} from './features/placeholder/page/placeholder.component';
 import { ModalComponent } from './core/components/modal/modal.component';
+import { FooterComponent } from './core/components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ModalComponent } from './core/components/modal/modal.component';
     AboutComponent,
     NavbarComponent,
     PlaceholderComponent,
-    ModalComponent
+    ModalComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

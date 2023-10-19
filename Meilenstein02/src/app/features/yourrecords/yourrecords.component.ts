@@ -30,5 +30,13 @@ export class YourrecordsComponent {
 
   resetToDefault(){
     localStorage.removeItem("records");
+    this.http.get(this.jsonUrl).subscribe(res => {
+      this.records = res;
+      localStorage.setItem("records", JSON.stringify(res));
+    });
+  }
+
+  ngOnInit() {
+
   }
 }

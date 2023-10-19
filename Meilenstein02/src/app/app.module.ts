@@ -7,11 +7,13 @@ import {RouterModule} from '@angular/router';
 import {AboutComponent} from './features/about/page/about.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NgOptimizedImage} from "@angular/common";
+import {NavbarComponent} from "./core/components/navbar/navbar.component";
 
 @NgModule({
   declarations: [
     AppComponent,
-    AboutComponent
+    AboutComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,7 @@
+{
+  "name": "Recordz",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

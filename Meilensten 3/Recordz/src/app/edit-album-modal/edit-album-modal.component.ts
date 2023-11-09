@@ -28,6 +28,12 @@ export class EditAlbumModalComponent implements OnInit {
     this.modalCtrl.dismiss();
   }
 
+  isDisabled() {
+    if (this.album)
+      return this.album.albumName === '' || this.album.artist === '' || this.album.version === '' || this.album.releaseDate === '' || this.album.recordLabel === '';
+    return true;
+  }
+
   save() {
     if (!this.album) return;
     if (this.album.id) updateAlbum(this.album.id, this.album);

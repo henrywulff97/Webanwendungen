@@ -5,9 +5,29 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Home</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-list [inset]="true">
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <img alt="Record" src="assets/images/record_playing.jpg" />
+      </ion-thumbnail>
+      <ion-label>Welcome to Recordz.</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-list [inset]="true">
+    <ion-item>
+      <ion-text>
+        This Website allows the user to keep track of their record collection by using the functionalities in the Data page. Use the settings for help.
+      </ion-text>
+    </ion-item>
+  </ion-list>
+  <ion-note color="medium" class="ion-margin-horizontal">
+    Made by Luca Schöneberg and Henry Wulff.
+  </ion-note>
+
 </ion-content>
+
+<ion-footer [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Footer</ion-title>
+  </ion-toolbar>
+</ion-footer>

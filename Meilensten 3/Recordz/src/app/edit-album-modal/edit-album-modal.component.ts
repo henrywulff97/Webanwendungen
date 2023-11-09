@@ -14,7 +14,7 @@ export class EditAlbumModalComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.album)
+    if (!this.album)
       this.album = {
         albumName: '',
         artist: '',
@@ -26,6 +26,12 @@ export class EditAlbumModalComponent implements OnInit {
 
   dismiss() {
     this.modalCtrl.dismiss();
+  }
+
+  isDisabled() {
+    if (this.album)
+      return this.album.albumName === '' || this.album.artist === '' || this.album.version === '' || this.album.releaseDate === '' || this.album.recordLabel === '';
+    return true;
   }
 
   save() {

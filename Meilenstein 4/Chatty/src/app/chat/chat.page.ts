@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { inject } from '@angular/core';
+import { Firestore, collectionData, collection } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-chat',
@@ -6,8 +9,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chat.page.scss'],
 })
 export class ChatPage implements OnInit {
+  item$: Observable<any[]>;
+  firestore: Firestore = inject(Firestore);
 
-  constructor() { }
+  constructor() {
+    const itemCollection = collection(this.firestore, 'items');
+    this.item$ = collectionData(itemCollection);
+    console.log('Data from Firebase:', this.item$);
+  }
 
   ngOnInit() {
   }

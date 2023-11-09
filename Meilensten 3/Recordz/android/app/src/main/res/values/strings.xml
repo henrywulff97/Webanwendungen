@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Recordz</string>
+    <string name="title_activity_main">Recordz</string>
+    <string name="package_name">de.hsos.wa.recordz</string>
+    <string name="custom_url_scheme">de.hsos.wa.recordz</string>
+</resources>

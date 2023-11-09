@@ -1,0 +1,7 @@
+{
+  "name": "Chatty",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

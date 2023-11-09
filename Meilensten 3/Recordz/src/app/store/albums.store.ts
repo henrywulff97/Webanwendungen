@@ -6,7 +6,7 @@ import {
   updateEntities,
   withEntities,
   deleteEntities,
-  selectAllEntities,
+  selectAllEntities, deleteAllEntities,
 } from "@ngneat/elf-entities";
 import { v4 as uuidv4 } from 'uuid';
 
@@ -49,6 +49,11 @@ export function removeAlbum(albumId: string) {
 // Aktualisiere ein Album
 export function updateAlbum(albumId: string, album: Partial<IAlbum>) {
   albumsStore.update(updateEntities(albumId, album));
+}
+
+// Entferne alle Alben
+export function clearAlbums() {
+  albumsStore.update(deleteAllEntities());
 }
 
 // Wähle alle Alben aus dem Store

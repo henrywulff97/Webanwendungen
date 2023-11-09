@@ -16,7 +16,7 @@
         <h2>Lokalen Speicher löschen</h2>
         <p>Entfernt alle gespeicherten Einstellungen und Daten aus dem lokalen Speicher des Geräts.</p>
       </ion-label>
-      <ion-button slot="end" color="danger" disabled="false"> <!-- ToDo: disable, and click to delete -->
+      <ion-button slot="end" color="danger" disabled="{{dataCount===0}}" (click)="clearStorage()">
         Löschen
         <ion-icon slot="end" name="trash"></ion-icon>
       </ion-button>

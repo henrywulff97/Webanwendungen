@@ -21,7 +21,6 @@ export class TabsPage {
   }
 
   ngOnDestroy() {
-    // Gib das Abonnement frei, wenn die Komponente zerstört wird
     if (this.subscription)
       this.subscription.unsubscribe();
   }

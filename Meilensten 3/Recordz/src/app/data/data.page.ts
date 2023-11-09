@@ -1,7 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {addAlbum, IAlbum, removeAlbum, subscribeToAlbums} from '../store/albums.store';
-import {Subscription} from "rxjs";
+import { Subscription} from "rxjs";
 import {add} from "ionicons/icons";
+import {EditAlbumModalComponent} from "../edit-album-modal/edit-album-modal.component";
+import {ModalController} from "@ionic/angular";
 
 
 @Component({
@@ -13,7 +15,7 @@ export class DataPage implements OnInit {
   @Input() items = Array<IAlbum>()
   private subscription: Subscription | undefined;
 
-  constructor() {
+  constructor(private modalCtrl: ModalController) {
   }
 
   ngOnInit() {
@@ -33,14 +35,26 @@ export class DataPage implements OnInit {
     removeAlbum(id);
   }
 
-  addItem() {
-    addAlbum({
-      albumName: 'New Album',
-      artist: 'New Artist',
-      version: 'New Version',
-      releaseDate: 'New Release Date',
-      recordLabel: 'New Record Label',
+  async openEditModal(albumToEdit: IAlbum) {
+    const modal = await this.modalCtrl.create({
+      component: EditAlbumModalComponent,
+      componentProps: {album: albumToEdit} // Übergebe das zu bearbeitende Album
     });
+
+    await modal.present();
+
+    const {data, role} = await modal.onDidDismiss();
+  }
+
+  async openAddModal() {
+    const modal = await this.modalCtrl.create({
+      component: EditAlbumModalComponent,
+      componentProps: {album: undefined} // Übergebe das zu bearbeitende Album
+    });
+
+    await modal.present();
+
+    const {data, role} = await modal.onDidDismiss();
   }
 
   protected readonly add = add;

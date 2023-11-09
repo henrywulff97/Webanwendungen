@@ -38,7 +38,7 @@
       </ion-item>
 
       <ion-item-options side="end">
-        <ion-item-option color="primary">
+        <ion-item-option color="primary" (click)="openEditModal(item)">
           <ion-icon slot="icon-only" name="pencil-outline"></ion-icon>
         </ion-item-option>
         <ion-item-option color="danger" (click)="removeItem(item.id)">
@@ -48,7 +48,7 @@
     </ion-item-sliding>
   </ion-list>
   <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-    <ion-fab-button (click)="addItem()">
+    <ion-fab-button (click)="openAddModal()">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>

@@ -1,12 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {addAlbum, IAlbum, removeAlbum, subscribeToAlbums} from '../store/albums.store';
+import {Subscription} from "rxjs";
+import {add} from "ionicons/icons";
 
-interface itemData {
-  albumName: string;
-  artist: string;
-  version: string;
-  releaseDate: string;
-  recordLabel: string;
-}
 
 @Component({
   selector: 'app-data',
@@ -14,27 +10,38 @@ interface itemData {
   styleUrls: ['./data.page.scss'],
 })
 export class DataPage implements OnInit {
-  items: itemData[] = [
-    {
-      albumName: 'Album 1',
-      artist: 'Artist 1',
-      version: '1.0',
-      releaseDate: '2023-01-01',
-      recordLabel: 'Label 1'
-    },
-    {
-      albumName: 'Album 2',
-      artist: 'Artist 2',
-      version: '1.0',
-      releaseDate: '2023-01-02',
-      recordLabel: 'Label 2'
-    }
-  ];
+  @Input() items = Array<IAlbum>()
+  private subscription: Subscription | undefined;
 
   constructor() {
   }
 
   ngOnInit() {
+    this.subscription = subscribeToAlbums((albums: IAlbum[]) => {
+      this.items = albums;
+    });
   }
 
+  ngOnDestroy() {
+    // Gib das Abonnement frei, wenn die Komponente zerstört wird
+    if (this.subscription)
+      this.subscription.unsubscribe();
+  }
+
+  removeItem(id: string) {
+    // ToDo: Ask for confirmation
+    removeAlbum(id);
+  }
+
+  addItem() {
+    addAlbum({
+      albumName: 'New Album',
+      artist: 'New Artist',
+      version: 'New Version',
+      releaseDate: 'New Release Date',
+      recordLabel: 'New Record Label',
+    });
+  }
+
+  protected readonly add = add;
 }

@@ -10,4 +10,46 @@
       <ion-title size="large">Data</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of items; let i = index">
+      <ion-item>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>{{ item.artist }}</ion-card-subtitle>
+            <ion-card-title>{{ item.albumName }}</ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col size="12" size-sm="6" size-md="4" size-lg="3" size-xl="2">
+                  <strong>Version:</strong> {{ item.version }}
+                </ion-col>
+                <ion-col size="12" size-sm="6" size-md="4" size-lg="3" size-xl="2">
+                  <strong>Release Date:</strong> {{ item.releaseDate }}
+                </ion-col>
+                <ion-col size="12" size-sm="6" size-md="4" size-lg="3" size-xl="2">
+                  <strong>Record Label:</strong> {{ item.recordLabel }}
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+      </ion-item>
+
+      <ion-item-options side="end">
+        <ion-item-option color="primary">
+          <ion-icon slot="icon-only" name="pencil-outline"></ion-icon>
+        </ion-item-option>
+        <ion-item-option color="danger">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

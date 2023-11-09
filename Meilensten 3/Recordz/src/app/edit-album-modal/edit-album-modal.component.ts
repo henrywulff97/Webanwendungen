@@ -9,19 +9,13 @@ import {ModalController} from "@ionic/angular";
 })
 export class EditAlbumModalComponent implements OnInit {
   @Input() album: Partial<IAlbum> | undefined;
+  editableAlbum: Partial<IAlbum> | undefined;
 
   constructor(private modalCtrl: ModalController) {
   }
 
   ngOnInit() {
-    if (!this.album)
-      this.album = {
-        albumName: '',
-        artist: '',
-        version: '',
-        releaseDate: '',
-        recordLabel: '',
-      };
+    this.editableAlbum = this.album ? JSON.parse(JSON.stringify(this.album)) : undefined;
   }
 
   dismiss() {
@@ -29,25 +23,29 @@ export class EditAlbumModalComponent implements OnInit {
   }
 
   isDisabled() {
-    if (this.album)
-      return this.album.albumName === '' || this.album.artist === '' || this.album.version === '' || this.album.releaseDate === '' || this.album.recordLabel === '';
+    if (this.editableAlbum)
+      return this.editableAlbum.albumName === '' ||
+        this.editableAlbum.artist === '' ||
+        this.editableAlbum.version === '' ||
+        this.editableAlbum.releaseDate === '' ||
+        this.editableAlbum.recordLabel === '';
     return true;
   }
 
   save() {
-    if (!this.album) return;
-    if (this.album.id) updateAlbum(this.album.id, this.album);
-    else {
+    if (!this.editableAlbum) return;
+    if (this.editableAlbum.id) {
+      updateAlbum(this.editableAlbum.id, this.editableAlbum);
+    } else {
       const newAlbum: Omit<IAlbum, 'id'> = {
-        albumName: this.album.albumName || '',
-        artist: this.album.artist || '',
-        version: this.album.version || '',
-        releaseDate: this.album.releaseDate || '',
-        recordLabel: this.album.recordLabel || '',
+        albumName: this.editableAlbum.albumName || '',
+        artist: this.editableAlbum.artist || '',
+        version: this.editableAlbum.version || '',
+        releaseDate: this.editableAlbum.releaseDate || '',
+        recordLabel: this.editableAlbum.recordLabel || '',
       };
       addAlbum(newAlbum);
     }
-    // check if album has an id
-    this.modalCtrl.dismiss(this.album, 'save');
+    this.modalCtrl.dismiss(this.editableAlbum, 'save');
   }
 }

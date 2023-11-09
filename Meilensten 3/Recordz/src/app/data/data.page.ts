@@ -2,8 +2,9 @@ import {Component, Input, OnInit} from '@angular/core';
 import {addAlbum, IAlbum, removeAlbum, subscribeToAlbums} from '../store/albums.store';
 import { Subscription} from "rxjs";
 import {add} from "ionicons/icons";
-import {EditAlbumModalComponent} from "../edit-album-modal/edit-album-modal.component";
+
 import {ModalController} from "@ionic/angular";
+import {EditAlbumModalComponent} from "../edit-album-modal/edit-album-modal.component";
 
 
 @Component({

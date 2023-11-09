@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { DataPageRoutingModule } from './data-routing.module';
 
 import { DataPage } from './data.page';
+import {EditAlbumModalComponentModule} from "../edit-album-modal/edit-album-modal.module";
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    DataPageRoutingModule
+    DataPageRoutingModule,
+    EditAlbumModalComponentModule
   ],
   declarations: [DataPage]
 })

@@ -9,5 +9,4 @@ import {EditAlbumModalComponent} from "./edit-album-modal.component";
   declarations: [EditAlbumModalComponent],
   exports: [EditAlbumModalComponent]
 })
-export class EditAlbumModalComponentModule {
-}
+export class EditAlbumModalComponentModule {}

@@ -14,7 +14,7 @@ export class EditAlbumModalComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.album)
+    if (!this.album)
       this.album = {
         albumName: '',
         artist: '',

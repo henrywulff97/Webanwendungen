@@ -17,6 +17,21 @@
       <ion-label position="floating">Artist</ion-label>
       <ion-input [(ngModel)]="album.artist"></ion-input>
     </ion-item>
+    <ion-item>
+      <ion-label position="floating">Record Label</ion-label>
+      <ion-input [(ngModel)]="album.recordLabel"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Release Date</ion-label>
+      <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="album.releaseDate"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Version</ion-label>
+      <ion-input [(ngModel)]="album.version"></ion-input>
+    </ion-item>
   </ion-list>
-  <ion-button expand="full" (click)="save()">Save</ion-button>
+  <ion-button expand="full"
+              [disabled]="album?.albumName && album?.artist && album?.recordLabel && album?.releaseDate && album?.version"
+              (click)="save()">Save
+  </ion-button>
 </ion-content>

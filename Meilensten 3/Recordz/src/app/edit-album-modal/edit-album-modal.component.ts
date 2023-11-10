@@ -15,7 +15,13 @@ export class EditAlbumModalComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.editableAlbum = this.album ? JSON.parse(JSON.stringify(this.album)) : undefined;
+    this.editableAlbum = this.album ? JSON.parse(JSON.stringify(this.album)) : {
+      albumName: '',
+      artist: '',
+      version: '',
+      releaseDate: '',
+      recordLabel: '',
+    };
   }
 
   dismiss() {

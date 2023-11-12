@@ -68,7 +68,7 @@ export class ChatPage implements OnInit {
 
   async sendMessage() {
     this.loading = true;
-    this.storage.get('savedContent').then((value) => {
+    await this.storage.get('savedContent').then((value) => {
       this.username = value || '';
     });
     if (this.newMessage.trim()) {

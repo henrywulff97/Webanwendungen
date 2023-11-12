@@ -31,7 +31,6 @@ export class ChatPage implements OnInit {
   newMessage: string = '';
   authorColors: { [author: string]: string } = {};
   loading: boolean = true
-  deleteMessages: IMessage[] = environment.deleteMessages as IMessage[];
 
   constructor() {
     onSnapshot(query(collection(this.firestore, 'room_1'), orderBy('timestamp', 'asc')), (snapshot) => {

@@ -29,7 +29,7 @@ export class SettingsPage implements OnInit {
   }
 
   async save() {
-    const messagesRef = collection(this.firestore, 'room_0');
+    const messagesRef = collection(this.firestore, 'room_1');
     const querySnapshot = await getDocs(messagesRef);
 
     const usernameExists = querySnapshot.docs.some(doc => {
@@ -41,6 +41,8 @@ export class SettingsPage implements OnInit {
       alert('Username already in use');
     } else {
       await this.storage.set('savedContent', this.username);
+      // Inform the user
+      alert('Username saved');
     }
   }
 }

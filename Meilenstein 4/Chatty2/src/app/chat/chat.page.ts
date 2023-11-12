@@ -11,6 +11,7 @@ import {
 } from '@angular/fire/firestore';
 import {IonContent} from "@ionic/angular";
 import {environment} from "../../environments/environment";
+import {Storage} from "@ionic/storage-angular";
 
 
 interface IMessage {
@@ -27,8 +28,10 @@ interface IMessage {
 export class ChatPage implements OnInit {
   @ViewChild(IonContent, {static: false}) content!: IonContent;
   private firestore: Firestore = inject(Firestore);
+  private storage: Storage = inject(Storage);
   messages: IMessage[] = [];
   newMessage: string = '';
+  username: string | undefined;
   authorColors: { [author: string]: string } = {};
   loading: boolean = true
 
@@ -56,17 +59,24 @@ export class ChatPage implements OnInit {
     }, 300);
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    await this.storage.create();
+    this.storage.get('savedContent').then((value) => {
+      this.username = value || '';
+    });
   }
 
   async sendMessage() {
     this.loading = true;
+    this.storage.get('savedContent').then((value) => {
+      this.username = value || '';
+    });
     if (this.newMessage.trim()) {
       try {
         await addDoc(collection(this.firestore, 'room_1'), {
           text: this.newMessage.trim(),
           timestamp: Timestamp.now(),
-          author: 'user'
+          author: this.username
         });
         this.newMessage = '';
       } catch (error) {

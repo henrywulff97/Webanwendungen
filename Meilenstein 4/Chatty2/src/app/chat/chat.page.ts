@@ -7,9 +7,11 @@ import {
   Timestamp,
   addDoc,
   orderBy,
-  query
+  query, deleteDoc, doc, getDocs
 } from '@angular/fire/firestore';
 import {IonContent} from "@ionic/angular";
+import {environment} from "../../environments/environment";
+
 
 interface IMessage {
   text: string;
@@ -29,16 +31,17 @@ export class ChatPage implements OnInit {
   newMessage: string = '';
   authorColors: { [author: string]: string } = {};
   loading: boolean = true
+  deleteMessages: IMessage[] = environment.deleteMessages as IMessage[];
 
   constructor() {
-    onSnapshot(query(collection(this.firestore, 'room_0'), orderBy('timestamp', 'asc')), (snapshot) => {
+    onSnapshot(query(collection(this.firestore, 'room_1'), orderBy('timestamp', 'asc')), (snapshot) => {
       snapshot.docChanges().forEach((change) => {
         if (change.type === 'added') {
           const message = change.doc.data() as IMessage;
           if (!this.authorColors[message.author]) {
             this.authorColors[message.author] = this.getRandomColor();
           }
-          this.messages.push(message); // Only add new messages
+          this.messages.push(message);
         }
       });
 
@@ -61,7 +64,7 @@ export class ChatPage implements OnInit {
     this.loading = true;
     if (this.newMessage.trim()) {
       try {
-        await addDoc(collection(this.firestore, 'room_0'), {
+        await addDoc(collection(this.firestore, 'room_1'), {
           text: this.newMessage.trim(),
           timestamp: Timestamp.now(),
           author: 'user'

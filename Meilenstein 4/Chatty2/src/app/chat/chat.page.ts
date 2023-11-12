@@ -1,16 +1,14 @@
 import {Component, inject, OnInit, ViewChild} from '@angular/core';
 import {
   Firestore,
-  collectionData,
   onSnapshot,
   collection,
-  Timestamp,
+  serverTimestamp,
   addDoc,
   orderBy,
-  query, deleteDoc, doc, getDocs
+  query, Timestamp
 } from '@angular/fire/firestore';
 import {IonContent} from "@ionic/angular";
-import {environment} from "../../environments/environment";
 import {Storage} from "@ionic/storage-angular";
 
 
@@ -75,7 +73,7 @@ export class ChatPage implements OnInit {
       try {
         await addDoc(collection(this.firestore, 'room_1'), {
           text: this.newMessage.trim(),
-          timestamp: Timestamp.now(),
+          timestamp: serverTimestamp(),
           author: this.username
         });
         this.newMessage = '';

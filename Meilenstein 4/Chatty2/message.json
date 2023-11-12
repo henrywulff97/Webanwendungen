@@ -1,0 +1,84 @@
+[Log] Array (81) (src_app_chat_chat_module_ts.js, line 113)
+0 {timestamp: Timestamp, text: "moinsens", author: "user222"}
+1 {text: "Hallo Welt", author: "", timestamp: Timestamp}
+2 {text: "Ist da jemand?", timestamp: Timestamp, author: "TestUser"}
+3 {author: "monkey", timestamp: Timestamp, text: "mhmmmm banana"}
+4 {text: "hi", timestamp: Timestamp, author: "default"}
+5 {timestamp: Timestamp, author: "user", text: "ok"}
+6 {text: "hi", timestamp: Timestamp, author: "default"}
+7 {author: "Eriol Shivas", timestamp: Timestamp, text: "peepeepoopo"}
+8 {author: "Eriol", timestamp: Timestamp, text: "hi"}
+9 {author: "TollerName", text: "Heydd", timestamp: Timestamp}
+10 {text: "TEST TEXT", author: "TEST", timestamp: Timestamp}
+11 {author: "Eriol Shivas", timestamp: Timestamp, text: "<message deleted>"}
+12 {text: "test5mio23", timestamp: Timestamp, author: "default"}
+13 {timestamp: Timestamp, text: "TEST TEXT", author: "TEST"}
+14 {timestamp: Timestamp, text: "<message deleted>", author: "Eriol Shivas"}
+15 {timestamp: Timestamp, text: "My Bad", author: "SehrguterName"}
+16 {timestamp: Timestamp, text: "test", author: "funnyname"}
+17 {author: "TEST", text: "TEST TEXT", timestamp: Timestamp}
+18 {author: "John Titor", text: "moin Timiboy", timestamp: Timestamp}
+19 {text: "TEST TEXT", author: "TEST", timestamp: Timestamp}
+20 {author: "TEST", text: "TEST TEXT", timestamp: Timestamp}
+21 {timestamp: Timestamp, text: "Daniel", author: "Daniel"}
+22 {text: "TEST TEXT", author: "TEST", timestamp: Timestamp}
+23 {timestamp: Timestamp, text: "Dies ist ein test", author: "TestUser"}
+24 {author: "default", timestamp: Timestamp, text: "asdf"}
+25 {text: "TestText", timestamp: Timestamp, author: "Test"}
+26 {text: "asdasafds", timestamp: Timestamp, author: "TEST"}
+27 {text: "Hallo?", author: "user", timestamp: Timestamp}
+28 {text: "¯\\_(ツ)_/¯", timestamp: Timestamp, author: "Eriol Shivas"}
+29 {author: "TEST", text: "123123123", timestamp: Timestamp}
+30 {text: "Halllo das ist ein text", author: "Tim", timestamp: Timestamp}
+31 {text: "TEST TEXT", author: "TEST", timestamp: Timestamp}
+32 {timestamp: Timestamp, text: "TEST TEXT", author: "TEST"}
+33 {text: "test5mio2", author: "default", timestamp: Timestamp}
+34 {timestamp: Timestamp, author: "Tim", text: "Halllo das ist ein text"}
+35 {timestamp: Timestamp, author: "monkeyy", text: "Halllo das ist ein text"}
+36 {timestamp: Timestamp, author: "Name", text: "Test"}
+37 {text: "Eriol Shivas", timestamp: Timestamp, author: "Eriol Shivas"}
+38 {author: "TEST", text: "TEST TEXT", timestamp: Timestamp}
+39 {text: "test5mio", timestamp: Timestamp, author: "default"}
+40 {timestamp: Timestamp, author: "Batman", text: "Ich teste nur was"}
+41 {author: "Eriol Shivas", timestamp: Timestamp, text: "(*^_^*)"}
+42 {text: "ok", author: "user", timestamp: Timestamp}
+43 {timestamp: Timestamp, text: "Heyoo", author: "monkeyy"}
+44 {author: "default", text: "Hallo", timestamp: Timestamp}
+45 {author: "TEST", timestamp: Timestamp, text: "TEST TEXT"}
+46 {author: "TestUser", text: "Hey", timestamp: Timestamp}
+47 {author: "TEST", timestamp: Timestamp, text: "TEST TEXT"}
+48 {text: "yum", author: "Banana", timestamp: Timestamp}
+49 {text: "bitti", timestamp: Timestamp, author: "pipe2"}
+50 {timestamp: Timestamp, author: "Joe Doe", text: "Moin zusammen :)"}
+51 {author: "Eriol Shivas", timestamp: Timestamp, text: "uwu"}
+52 {text: "TEST TEXT", author: "TEST", timestamp: Timestamp}
+53 {author: "TestUser", text: "Empty", timestamp: Timestamp}
+54 {author: "pipe", text: "eine nudelform", timestamp: Timestamp}
+55 {timestamp: Timestamp, author: "Mustermann", text: "Hallo ich bin Max"}
+56 {text: "TEST TEXT", author: "TEST", timestamp: Timestamp}
+57 {author: "TEST", text: "TEST TEXT", timestamp: Timestamp}
+58 {text: "Okay funktioniert. Ich muss los, die Stadt braucht mich.", timestamp: Timestamp, author: "Batman"}
+59 {text: "Hallo", timestamp: Timestamp, author: "SehrGuterName"}
+60 {timestamp: Timestamp, text: "TestText", author: "username"}
+61 {text: "fff", timestamp: Timestamp, author: "test update"}
+62 {author: "Eriol Shivas", text: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", timestamp: Timestamp}
+63 {timestamp: Timestamp, author: "John Titor", text: "Ich komme aus dem Jahr 2025, es gibt Freibier für alle"}
+64 {timestamp: Timestamp, author: "username", text: "Test"}
+65 {timestamp: Timestamp, text: "Sorry für den Spam", author: "SehrguterName"}
+66 {timestamp: Timestamp, author: "User", text: "Hey"}
+67 {text: "test5mio1", timestamp: Timestamp, author: "default"}
+68 {author: "Tim", text: "Halllo das ist ein text", timestamp: Timestamp}
+69 {timestamp: Timestamp, text: "Moin", author: "Namemeiner"}
+70 {timestamp: Timestamp, text: "tesup", author: "test update"}
+71 {author: "TestUser", text: "Ist da jemand?", timestamp: Timestamp}
+72 {timestamp: Timestamp, text: "Ich habe Hunger", author: "User"}
+73 {timestamp: Timestamp, author: "TEST", text: "TEST TEXT"}
+74 {author: "\"EindeutigerName\"", text: "Hallo", timestamp: Timestamp}
+75 {timestamp: Timestamp, author: "pipe3", text: "bitte funktionier doch"}
+76 {author: "monkeyy", text: "ich bin monkeyy", timestamp: Timestamp}
+77 {text: "ResidentSleeper", timestamp: Timestamp, author: "Eriol Shivas"}
+78 {author: "plutka", text: "Hallo Welt! Schön, dass es Dich gibt!", timestamp: Timestamp}
+79 {text: "Hello world", timestamp: Timestamp, author: "user"}
+80 {author: "TEST", timestamp: Timestamp, text: "12312312"}
+
+Array Prototyp

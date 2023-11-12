@@ -1,5 +1,14 @@
 import {Component, inject, OnInit, ViewChild} from '@angular/core';
-import {Firestore, collectionData, collection, Timestamp, addDoc, orderBy, query} from '@angular/fire/firestore';
+import {
+  Firestore,
+  collectionData,
+  onSnapshot,
+  collection,
+  Timestamp,
+  addDoc,
+  orderBy,
+  query
+} from '@angular/fire/firestore';
 import {IonContent} from "@ionic/angular";
 
 interface IMessage {
@@ -22,17 +31,22 @@ export class ChatPage implements OnInit {
   loading: boolean = true
 
   constructor() {
-    collectionData(query(collection(this.firestore, 'room_0'), orderBy('timestamp', 'asc'))).subscribe((data: any[]) => {
-      this.messages = data.map(message => {
-        if (!this.authorColors[message.author]) {
-          this.authorColors[message.author] = this.getRandomColor();
+    onSnapshot(query(collection(this.firestore, 'room_0'), orderBy('timestamp', 'asc')), (snapshot) => {
+      snapshot.docChanges().forEach((change) => {
+        if (change.type === 'added') {
+          const message = change.doc.data() as IMessage;
+          if (!this.authorColors[message.author]) {
+            this.authorColors[message.author] = this.getRandomColor();
+          }
+          this.messages.push(message); // Only add new messages
         }
-        return message;
       });
+
       this.loading = false;
       this.scrollToBottom();
     });
   }
+
 
   scrollToBottom() {
     setTimeout(async () => {

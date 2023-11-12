@@ -1,5 +1,5 @@
 import {Component, inject, OnInit} from '@angular/core';
-import { Storage } from '@ionic/storage-angular';
+import {Storage} from '@ionic/storage-angular';
 import {collection, collectionData, doc, Firestore, getDocs, orderBy, query, Timestamp} from "@angular/fire/firestore";
 
 interface IMessage {
@@ -16,6 +16,7 @@ interface IMessage {
 export class SettingsPage implements OnInit {
   username: string | undefined;
   private firestore: Firestore = inject(Firestore);
+
   constructor(private storage: Storage) {
 
   }
@@ -28,21 +29,18 @@ export class SettingsPage implements OnInit {
   }
 
   async save() {
-    await this.storage.create();
+    const messagesRef = collection(this.firestore, 'room_0');
+    const querySnapshot = await getDocs(messagesRef);
 
-    const db = collection(this.firestore, 'room_0');
-    const data = getDocs(db);
-    console.log(data);
-    (await data).forEach(doc => {
+    const usernameExists = querySnapshot.docs.some(doc => {
       const message = doc.data() as IMessage;
-
-      if (message.author === this.username) {
-        alert('Username already in use');
-        return false;
-      }
-      else {
-        this.storage.set('savedContent', this.username);
-      }
+      return message.author === this.username;
     });
+
+    if (usernameExists) {
+      alert('Username already in use');
+    } else {
+      await this.storage.set('savedContent', this.username);
+    }
   }
 }

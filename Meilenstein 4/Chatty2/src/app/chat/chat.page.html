@@ -4,10 +4,23 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">chat</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" #content>
+  <ion-spinner *ngIf="loading" name="crescent"></ion-spinner>
+
+  <ion-list >
+    <ion-item *ngFor="let message of messages">
+      <ion-label>
+        <h2 [ngStyle]="{'color': getColorForAuthor(message.author)}" class="author-name">{{ message.author }}</h2>
+        <p>{{ message.text }}</p>
+        <p>Date: {{ message.timestamp.toDate() | date: 'short' }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-footer>
+    <ion-item lines="none">
+      <ion-input placeholder="Type your message..." [(ngModel)]="newMessage"></ion-input>
+      <ion-button (click)="sendMessage()">Send</ion-button>
+    </ion-item>
+  </ion-footer>
 </ion-content>

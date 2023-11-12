@@ -1,0 +1,21 @@
+.author-name {
+  font-weight: bold;
+}
+
+ion-footer {
+  --border-style: none;
+  position: sticky;
+  bottom: 0;
+  background: white;
+}
+
+ion-content {
+  --padding-bottom: env(safe-area-inset-bottom);
+}
+
+.messages-container {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  height: 100%;
+}

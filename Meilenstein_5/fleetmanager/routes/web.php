@@ -1,4 +1,5 @@
 <?php
+
 use App\Http\Controllers\ManufacturerController;
 use App\Http\Controllers\ShipController;
 use App\Http\Controllers\ShipmodelController;
@@ -20,7 +21,7 @@ Route::get('/', function () {
 });
 
 //Route::middleware(['auth'])->group(function () {
-Route::get('ships', [ShipController::class, 'getIndex']);
+Route::get('ships', [ShipController::class, 'getIndex'])->name('ships.index');
 Route::get('ships/index', [ShipController::class, 'getIndex']);
 Route::get('ships/show/{id}', [ShipController::class, 'getShow']);
 Route::get('ships/add', [ShipController::class, 'getAdd']);
@@ -30,7 +31,7 @@ Route::post('ships/update/{id}', [ShipController::class, 'postUpdate']);
 Route::get('ships/delete/{id}', [ShipController::class, 'getDelete']);
 Route::get('ships/json', [ShipController::class, 'getJson']);
 
-Route::get('shipmodels', [ShipmodelController::class, 'getIndex']);
+Route::get('shipmodels', [ShipmodelController::class, 'getIndex'])->name('shipmodels.index');
 Route::get('shipmodels/index', [ShipmodelController::class, 'getIndex']);
 Route::get('shipmodels/show/{id}', [ShipmodelController::class, 'getShow']);
 Route::get('shipmodels/add', [ShipmodelController::class, 'getAdd']);
@@ -40,7 +41,7 @@ Route::post('shipmodels/update/{id}', [ShipmodelController::class, 'postUpdate']
 Route::get('shipmodels/delete/{id}', [ShipmodelController::class, 'getDelete']);
 Route::get('shipmodels/json', [ShipmodelController::class, 'getJson']);
 
-Route::get('manufacturers', [ManufacturerController::class, 'getIndex']);
+Route::get('manufacturers', [ManufacturerController::class, 'getIndex'])->name('manufacturers.index');
 Route::get('manufacturers/index', [ManufacturerController::class, 'getIndex']);
 Route::get('manufacturers/show/{id}', [ManufacturerController::class, 'getShow']);
 Route::get('manufacturers/add', [ManufacturerController::class, 'getAdd']);

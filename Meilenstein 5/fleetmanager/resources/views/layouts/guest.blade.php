@@ -29,18 +29,15 @@
             max-width: 450px;
             margin: auto;
         }
-
         .form-signin .checkbox {
             font-weight: 400;
         }
-
         .form-signin .form-control {
             position: relative;
             box-sizing: border-box;
             height: auto;
             font-size: 16px;
         }
-
         .form-signin .form-control:focus {
             z-index: 2;
         }

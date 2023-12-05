@@ -9,13 +9,7 @@
     <br/>
     {{ html()->text('brt')->class('form-control')->placeholder('BRT...') }}
     <br/>
-    <label>
-        <select class="form-control" name="ship_class">
-            @foreach($shipmodels as $id => $name)
-                <option value="{{ $id }}">{{ $name }}</option>
-            @endforeach
-        </select>
-    </label>
+    {{ html()->select('ship_model_id')->options($shipmodels->pluck('name', 'id'))->class('form-control')->name('ship_class')->placeholder('Schiffsmodell...') }}
     <br/>
     {{ html()->number('crew_size')->class('form-control')->placeholder('Besatzungsgröße...') }}
     <br/>

@@ -27,7 +27,8 @@ Route::get('ships/show/{id}', [ShipController::class, 'getShow']);
 Route::get('ships/add', [ShipController::class, 'getAdd']);
 Route::post('ships/save', [ShipController::class, 'postSave']);
 Route::get('ships/edit/{id}', [ShipController::class, 'getEdit']);
-Route::post('ships/update/{id}', [ShipController::class, 'postUpdate']);
+Route::get('/ships/{ship}/edit', [ShipController::class, 'edit']);
+Route::post('ships/update/{id}', [ShipController::class, 'postUpdate'])->name('ships.update');
 Route::get('ships/delete/{id}', [ShipController::class, 'getDelete']);
 Route::get('ships/json', [ShipController::class, 'getJson']);
 

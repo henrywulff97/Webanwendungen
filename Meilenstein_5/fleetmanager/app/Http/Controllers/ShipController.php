@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ship;
 use App\Models\Shipmodel;
-use Illuminate\Foundation\Application;
+use Illuminate\Contracts\View\View;
 
 class ShipController extends Controller
 {
@@ -22,7 +23,18 @@ class ShipController extends Controller
 
     public function getAdd()
     {
-        $shipmodels = Shipmodel::pluck('name', 'id');
-        return view('ships.add', compact('shipmodels'));
+        $shipmodels = ShipModel::all();
+        return view($this->entityName . '.add')->with('shipmodels', $shipmodels);
+    }
+
+    public function getEdit($id)
+    {
+        $class = $this->className;
+        $entity = $class::find($id);
+        $shipmodels = ShipModel::all();
+        if ($entity) {
+            return view($this->entityName . '.edit')->with('entity', $entity)->with('shipmodels', $shipmodels);
+        }
+        return redirect($this->entityName . '/index');
     }
 }

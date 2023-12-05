@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Shipmodel;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -21,12 +22,12 @@ class Controller extends BaseController
     {
         $class = $this->className;
         $entities = $class::paginate(20);
-        return view($this->entityName.'.index')->with('entities', $entities);
+        return view($this->entityName . '.index')->with('entities', $entities);
     }
 
     public function getAdd()
     {
-        return view($this->entityName.'.add');
+        return view($this->entityName . '.add');
     }
 
     public function postSave(Request $req)
@@ -34,23 +35,21 @@ class Controller extends BaseController
         $req->validate($this->validation);
         $class = $this->className;
         $entity = new $class();
-        foreach($this->fields as $field)
-        {
+        foreach ($this->fields as $field) {
             $entity->$field = $req->input($field);
         }
         $entity->save();
-        return redirect($this->entityName.'/index');
+        return redirect($this->entityName . '/index');
     }
 
     public function getEdit($id)
     {
         $class = $this->className;
         $entity = $class::find($id);
-        if ($entity)
-        {
-            return view($this->entityName.'.edit')->with('entity', $entity);
+        if ($entity) {
+            return view($this->entityName . '.edit')->with('entity', $entity);
         }
-        return redirect($this->entityName.'/index');
+        return redirect($this->entityName . '/index');
     }
 
     public function postUpdate(Request $req, $id)
@@ -58,37 +57,33 @@ class Controller extends BaseController
         $req->validate($this->validations);
         $class = $this->className;
         $entity = $class::find($id);
-        if ($entity)
-        {
-            foreach($this->fields as $field)
-            {
+        if ($entity) {
+            foreach ($this->fields as $field) {
                 $entity->$field = $req->input($field);
             }
-            $entity->save();  
+            $entity->save();
         }
-        return redirect($this->entityName.'/index');
+        return redirect($this->entityName . '/index');
     }
 
     public function getShow($id)
     {
         $class = $this->className;
         $entity = $class::find($id);
-        if ($entity)
-        {
-            return view($this->entityName.'.show')->with('entity', $entity);
+        if ($entity) {
+            return view($this->entityName . '.show')->with('entity', $entity);
         }
-        return redirect($this->entityName.'/index');
+        return redirect($this->entityName . '/index');
     }
 
     public function getDelete($id)
     {
         $class = $this->className;
         $entity = $class::find($id);
-        if ($entity)
-        {
+        if ($entity) {
             $entity->delete();
         }
-        return redirect($this->entityName.'/index');
+        return redirect($this->entityName . '/index');
     }
 
     public function getJson()

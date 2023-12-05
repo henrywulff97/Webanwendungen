@@ -4,12 +4,12 @@
     <h1>Schiff bearbeiten</h1>
     @include('snippets.error')
 
-    {{ html()->modelForm($entity, 'POST', url('ships/update/'.$entity->id))->open() }}
+    {{ html()->modelForm($entity, 'POST', route('ships.update', $entity))->open() }}
     {{ html()->text('name')->class('form-control')->placeholder('Schiffsname...') }}
     <br/>
     {{ html()->text('brt')->class('form-control')->placeholder('BRT...') }}
     <br/>
-    {{ html()->text('ship_class')->class('form-control')->placeholder('Schiffsklasse...') }}
+    {{ html()->select('ship_model_id')->options($shipmodels->pluck('name', 'id'))->class('form-control')->name('ship_class')->placeholder('Schiffsmodell...') }}
     <br/>
     {{ html()->number('crew_size')->class('form-control')->placeholder('Besatzungsgröße...') }}
     <br/>
@@ -20,7 +20,7 @@
     {{ html()->number('fuel_capacity')->class('form-control')->placeholder('Treibstoffkapazität...') }}
     <br/>
     {{ html()->submit('Speichern')->class('btn btn-success') }}
-    <a href="{{url('ships')}}" class="btn btn-danger">Abbrechen</a>
+    <a href="{{route('ships.index')}}" class="btn btn-danger">Abbrechen</a>
 
     {{ html()->closeModelForm() }}
 

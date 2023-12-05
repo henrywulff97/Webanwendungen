@@ -19,8 +19,8 @@ class Ship extends Model
         'fuel_capacity',
     ];
 
-    public function model(): BelongsTo
+    public function shipmodel()
     {
-        return $this->belongsTo(Model::class);
+        return $this->belongsTo(Shipmodel::class);
     }
 }
